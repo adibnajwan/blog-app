@@ -8,4 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'title',
+        'slug',
+        'content',
+        'user_id',
+    ];
+
+    // Relasi ke model User (ini sudah ada atau bisa ditambahkan)
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
